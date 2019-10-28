@@ -8,5 +8,7 @@
 * 转化为图片
 * 整套工具链, 自由组合中间过程
 
-[GitHub](https://github.com/docsifyjs/docsify/)
-[Get Started](#quick-start)
+[GitHub](https://github.com/JameyWoo/re2graph)
+[Get Started](how_to_use)
+
+<!-- ![color](#f0f0f0) -->
