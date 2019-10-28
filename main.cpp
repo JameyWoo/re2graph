@@ -89,12 +89,12 @@ int main(int argc, char *argv[]) {
             nfa2png(mynfa, pngfile.replace(pngfile.find(".png"), 4, "_nfa.png"), pattern);
             pngfile = raw;
         }
-        if ((count(graphes.begin(), graphes.end(), 'd') != 0) || graphes.size() == 0) {
-            dfa2png(mydfa, pngfile.replace(pngfile.find(".png"), 4, "_dfa.png"), pattern);
-            pngfile = raw;
-        }
         if ((count(graphes.begin(), graphes.end(), 'm') != 0) || graphes.size() == 0) {
             dfa2png(my_min_dfa, pngfile.replace(pngfile.find(".png"), 4, "_mindfa.png"), pattern);
+            pngfile = raw;
+        }
+        if ((count(graphes.begin(), graphes.end(), 'd') != 0) || graphes.size() == 0) {
+            dfa2png(mydfa, pngfile.replace(pngfile.find(".png"), 4, "_dfa.png"), pattern);
             pngfile = raw;
         }
     }
