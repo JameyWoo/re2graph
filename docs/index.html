@@ -9,13 +9,23 @@
   <link rel="stylesheet" href="//unpkg.com/docsify/lib/themes/vue.css">
 </head>
 <body>
-  <div id="app"></div>
+  <div id="app">加载中, 客官请稍等...</div>
   <script>
     window.$docsify = {
+      loadSidebar: true,
+      subMaxLevel: 2,
       name: '',
       repo: ''
     }
   </script>
   <script src="//unpkg.com/docsify/lib/docsify.min.js"></script>
+  <script src="//unpkg.com/docsify-copy-code"></script> <!-- 复制到剪切板 -->
+
+  <!-- 语法高亮 -->
+  <script src="//unpkg.com/prismjs/components/prism-bash.js"></script>
+  <script src="//unpkg.com/prismjs/components/prism-c.js"></script>
+  <script src="//unpkg.com/prismjs/components/prism-cpp.js"></script>
+  <script src="//unpkg.com/prismjs/components/prism-python.js"></script>
+  <script src="//unpkg.com/prismjs/components/prism-java.js"></script>
 </body>
 </html>
