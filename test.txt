@@ -1,0 +1,3 @@
+./main -r "(a*)b" -o test.png
+
+./main -r "a([a-z]*a)*" -o test.png

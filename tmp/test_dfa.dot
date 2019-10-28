@@ -1,0 +1,17 @@
+digraph {
+	0 [label="0" color=red shape=doublecircle]
+	1 [label="1" color=red shape=doublecircle]
+	2 [label="2" color=red shape=doublecircle]
+	3 [label="3" color=red shape=doublecircle]
+	4 [label="4" color=red shape=doublecircle]
+	5 [label="5" color=red shape=doublecircle]
+	0 -> 1 [label="a"]
+	0 -> 2 [label="b"]
+	1 -> 1 [label="a"]
+	1 -> 3 [label="b"]
+	2 -> 1 [label="a"]
+	2 -> 4 [label="b"]
+	3 -> 5 [label="a"]
+	5 -> 1 [label="a"]
+	5 -> 4 [label="b"]
+}
