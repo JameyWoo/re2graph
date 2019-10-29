@@ -1,8 +1,9 @@
 ## 在线文档
 
+@author 姬小野
+
 [点击查看详细文档](https://fiveplus.top/re2graph)
 
----
 
 
 ## 项目依赖
