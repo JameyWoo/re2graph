@@ -1,3 +1,7 @@
+/**
+ * @author: 姬小野
+ */
+
 #include "algorithms.h"
 #include "data_structure.h"
 
