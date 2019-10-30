@@ -1,7 +1,3 @@
-/**
- * @author: 姬小野
- */
-
 #include "algorithms.h"
 #include "data_structure.h"
 
@@ -133,6 +129,7 @@ void nfa2dfa(NFA nfa, DFA &dfa) {
     // 查看闭包
     // cout << "closures: " << endl;
     // for (int i = 0; i < nfa.state_cnt; ++i) {
+    //     cout << i << ": ";
     //     for (auto clo : closures[i]) {
     //         cout << clo << ' ';
     //     }
@@ -144,10 +141,12 @@ void nfa2dfa(NFA nfa, DFA &dfa) {
     for (auto x : nfa.end_states) {
         ext_end_states.insert(x);  // 先插入最基本的接受状态
     }
+    int ic = 0;
     for (auto closure : closures) {
+        ic++;
         for (auto x : closure) {
             if (ext_end_states.count(x)) {
-                ext_end_states.insert(closure.begin(), closure.end());
+                ext_end_states.insert(ic - 1);
                 break;
             }
         }
@@ -166,6 +165,11 @@ void nfa2dfa(NFA nfa, DFA &dfa) {
     set<int> set_visted;                                      // 保存一个set是否被访问过的信息
     int set_state                       = 0;                  // 集合的整数状态
     set_hash[closures[nfa.start_state]] = set_state++;        // 初始状态编码为0
+    // cout << "0: ";
+    // for (auto s: closures[nfa.start_state]) {
+    //     cout << s << ' ';
+    // }
+    // cout << endl;
     jump_dfa.push_back(map<char, int>());                     // 压入初始状态的map
     set_visted.insert(set_hash[closures[nfa.start_state]]);   // 标记访问过
                                                               // 初始化变量之后开始工作
@@ -189,6 +193,11 @@ void nfa2dfa(NFA nfa, DFA &dfa) {
             if (next_state_set.size() != 0) {                // 如果不是空, 说明是一个心得dfa状态
                 if (set_hash.count(next_state_set) == 0) {   // 遇到新状态, 计次, 转化为dfa中的状态
                     set_hash[next_state_set] = set_state++;  // 新状态分配int型状态号
+                    // cout << set_state - 1 << ": ";
+                    // for (auto s: next_state_set) {
+                    //     cout << s << ' ';
+                    // }
+                    // cout << endl;
                     for (auto s : next_state_set) {          // 查找当前集合是否存在nfa的接受状态, 如果存在, 那它也是dfa的终止状态
                         if (ext_end_states.count(s) != 0) {
                             end_states.insert(set_state - 1);  // 是终止状态
@@ -206,6 +215,14 @@ void nfa2dfa(NFA nfa, DFA &dfa) {
             }
         }
     }
+
+    // for (auto s: set_hash) {
+    //     cout << s.second << ": ";
+    //     for (auto v: s.first) {
+    //         cout << ' ';
+    //     }
+    //     cout << endl;
+    // }
 
     // 构造dfa, 按照DFA数据定义的顺序
     dfa.char_cnt      = nfa.char_cnt;
@@ -673,15 +690,21 @@ Graph parse_re(string rexp, int &state) {
     // ! 也就是说如果存在不在括号中的 | , 但括号再rexp中存在的情况, 要先处理 |
     bool has_bra = count(rexp.begin(), rexp.end(), '(');  // 是否有括号
     bool or_out  = false;                                 // | 是否在括号外面
+    int or_loc = 0;
     if (has_bra) {
         stack<char> in_or_out;
+        int i = 0;
         for (auto s : rexp) {
+            i++;
             if (s == '(') {
                 in_or_out.push('*');
             } else if (s == ')') {
                 in_or_out.pop();
             }
-            if (s == '|' && in_or_out.size() == 0) or_out = true;
+            if (s == '|' && in_or_out.size() == 0) {
+                or_out = true;
+                or_loc = i - 1;
+            }
         }
     }
 
@@ -738,8 +761,14 @@ Graph parse_re(string rexp, int &state) {
         string sub_rexp;
         Graph merge;
         merge.start = state++;  // 先编号开始, 顺序好看些
+        int i = 0;
         for (auto s : rexp) {
+            i++;
             if (s == '|') {
+                if (or_out && or_loc != (i - 1)) {
+                    sub_rexp += s;
+                    continue;
+                }
                 if (sub_rexp.size()) {
                     graphes.push_back(parse_re(sub_rexp, state));
                     sub_rexp.clear();
