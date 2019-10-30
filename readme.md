@@ -1,6 +1,6 @@
 ## 在线文档
 
-@author 姬小野
+[@author 姬小野](https://blog.csdn.net/wjh2622075127)
 
 [点击查看文档与Demo](https://fiveplus.top/re2graph)
 
@@ -50,6 +50,8 @@ a-z
 
 
 ## 参数解析
+
+执行 make 得到目标程序
 
 输入 `./main -h` 得到参数提示
 
