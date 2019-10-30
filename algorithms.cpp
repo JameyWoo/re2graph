@@ -158,13 +158,13 @@ void nfa2dfa(NFA nfa, DFA &dfa) {
     // cout << endl;
 
     // ! 进行子集构造算法
-    set<int> end_states;                                      // dfa的终止状态
-    if (ext_end_states.count(0)) end_states.insert(0);        // 因为先单独将起始状态0加入了工作列表, 所以对他的接收状态需要提前处理
-    map<set<int>, int> set_hash;                              // 集合对整数的hash, 也就是对子集编码
-    vector<map<char, int>> jump_dfa;                          // dfa的jump
-    set<int> set_visted;                                      // 保存一个set是否被访问过的信息
-    int set_state                       = 0;                  // 集合的整数状态
-    set_hash[closures[nfa.start_state]] = set_state++;        // 初始状态编码为0
+    set<int> end_states;                                // dfa的终止状态
+    if (ext_end_states.count(0)) end_states.insert(0);  // 因为先单独将起始状态0加入了工作列表, 所以对他的接收状态需要提前处理
+    map<set<int>, int> set_hash;                        // 集合对整数的hash, 也就是对子集编码
+    vector<map<char, int>> jump_dfa;                    // dfa的jump
+    set<int> set_visted;                                // 保存一个set是否被访问过的信息
+    int set_state                       = 0;            // 集合的整数状态
+    set_hash[closures[nfa.start_state]] = set_state++;  // 初始状态编码为0
     // cout << "0: ";
     // for (auto s: closures[nfa.start_state]) {
     //     cout << s << ' ';
@@ -198,7 +198,7 @@ void nfa2dfa(NFA nfa, DFA &dfa) {
                     //     cout << s << ' ';
                     // }
                     // cout << endl;
-                    for (auto s : next_state_set) {          // 查找当前集合是否存在nfa的接受状态, 如果存在, 那它也是dfa的终止状态
+                    for (auto s : next_state_set) {  // 查找当前集合是否存在nfa的接受状态, 如果存在, 那它也是dfa的终止状态
                         if (ext_end_states.count(s) != 0) {
                             end_states.insert(set_state - 1);  // 是终止状态
                             break;
@@ -690,7 +690,7 @@ Graph parse_re(string rexp, int &state) {
     // ! 也就是说如果存在不在括号中的 | , 但括号再rexp中存在的情况, 要先处理 |
     bool has_bra = count(rexp.begin(), rexp.end(), '(');  // 是否有括号
     bool or_out  = false;                                 // | 是否在括号外面
-    int or_loc = 0;
+    int or_loc   = 0;
     if (has_bra) {
         stack<char> in_or_out;
         int i = 0;
@@ -761,7 +761,7 @@ Graph parse_re(string rexp, int &state) {
         string sub_rexp;
         Graph merge;
         merge.start = state++;  // 先编号开始, 顺序好看些
-        int i = 0;
+        int i       = 0;
         for (auto s : rexp) {
             i++;
             if (s == '|') {
