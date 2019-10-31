@@ -391,7 +391,7 @@ void nfa2png(NFA nfa, string png_file, string pattern) {
     string raw_png_file = png_file;
     string dot_file     = "./tmp/" + png_file.replace(png_file.find(".png"), 4, ".dot");
     nfa2dot(nfa, dot_file);
-    string his_pat = "circo";
+    string his_pat = "dot";
     string cmd     = his_pat + " -Tpng " + dot_file + " -o ./image/{test.png}";
     if (pattern.size()) cmd.replace(cmd.find(his_pat), his_pat.size(), pattern);
     cmd.replace(cmd.find("{test.png}"), 10, raw_png_file);
@@ -403,7 +403,7 @@ void dfa2png(DFA dfa, string png_file, string pattern) {
     string raw_png_file = png_file;
     string dot_file     = "./tmp/" + png_file.replace(png_file.find(".png"), 4, ".dot");
     dfa2dot(dfa, dot_file);
-    string his_pat = "circo";
+    string his_pat = "dot";
     string cmd     = his_pat + " -Tpng " + dot_file + " -o ./image/{test.png}";
     if (pattern.size()) cmd.replace(cmd.find(his_pat), his_pat.size(), pattern);
     cmd.replace(cmd.find("{test.png}"), 10, raw_png_file);

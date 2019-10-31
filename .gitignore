@@ -1,7 +1,5 @@
 *.o
 *.exe
 .vscode
-tmp/*.dot
-tmp/*.dfa
-tmp/*.nfa
+tmp/*.*
 image/*.png
