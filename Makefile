@@ -15,7 +15,7 @@ $(EXEC): $(OBJS)
 
 clean: 
 	del $(EXEC) $(OBJS)
-	del 
+	
 
 push: 
 	git add . 
