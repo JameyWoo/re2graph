@@ -1,2 +1,6 @@
 *.o
 .vscode
+tmp/*.dot
+tmp/*.dfa
+tmp/*.nfa
+image/*.png

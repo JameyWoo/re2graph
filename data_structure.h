@@ -6,7 +6,7 @@
 #ifndef __DATA_STRUCTURE_H_
 #define __DATA_STRUCTURE_H_
 
-// 加上万能头文件, 
+// 加上万能头文件, 防止其他电脑环境不合适
 #include<bits/stdc++.h> 
 #include <algorithm>
 #include <fstream>
