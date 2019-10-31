@@ -6,6 +6,8 @@
 #ifndef __DATA_STRUCTURE_H_
 #define __DATA_STRUCTURE_H_
 
+// 加上万能头文件, 
+#include<bits/stdc++.h> 
 #include <algorithm>
 #include <fstream>
 #include <iostream>
@@ -14,6 +16,7 @@
 #include <set>
 #include <stack>
 #include <vector>
+#include <climits>
 #include "unistd.h"
 
 using namespace std;
