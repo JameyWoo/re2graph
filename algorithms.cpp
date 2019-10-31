@@ -107,7 +107,7 @@ void nfa2dfa(NFA nfa, DFA &dfa) {
     //     }
     // }
     for (int i = 0; i < nfa.state_cnt; ++i) {
-        if (ext_start[i]) {
+        // if (ext_start[i]) { // 不需要判断, 如果环的入口不是起点这种情况会出错
             queue<int> inq;
             vector<int> visted(nfa.state_cnt);
             inq.push(i);
@@ -122,7 +122,7 @@ void nfa2dfa(NFA nfa, DFA &dfa) {
                         visted[v] = true;
                     }
                 }
-            }
+            // }
         }
     }
 
@@ -190,7 +190,7 @@ void nfa2dfa(NFA nfa, DFA &dfa) {
                     }
                 }
             }
-            if (next_state_set.size() != 0) {                // 如果不是空, 说明是一个心得dfa状态
+            if (next_state_set.size() != 0) {                // 如果不是空, 说明是一个dfa状态
                 if (set_hash.count(next_state_set) == 0) {   // 遇到新状态, 计次, 转化为dfa中的状态
                     set_hash[next_state_set] = set_state++;  // 新状态分配int型状态号
                     // cout << set_state - 1 << ": ";
