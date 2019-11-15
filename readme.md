@@ -10,11 +10,11 @@
 
 此项目的图片生成部分依赖于项目 graphviz, [这是他们的主页](https://www.graphviz.org/) 
 
-致谢
+致谢~
 
 如何安装 graphviz 可以参考[这篇文章](https://www.cnblogs.com/onemorepoint/p/8310996.html)
 
-致谢
+致谢~
 
 **请安装好graphviz并配置好环境变量之后再使用本程序的画图功能. 字符串匹配功能不受影响**
 

@@ -1,0 +1,19 @@
+{
+	"folders": [
+		{
+			"path": "."
+		},
+		{
+			"name": "re转化为状态图-github @ a510386",
+			"uri": "gitlens://a510386/e:/Github/re转化为状态图-github?{\"path\":\"/e:/Github/re转化为状态图-github\",\"ref\":\"a510386e0f4b2e7a5e4c7eb2c2e9fb15d2c8b9e9\",\"repoPath\":\"e:/Github/re转化为状态图-github\"}"
+		}
+	],
+	"settings": {
+		"files.associations": {
+			"iostream": "cpp",
+			"random": "cpp",
+			"ostream": "cpp",
+			"iosfwd": "cpp"
+		}
+	}
+}
